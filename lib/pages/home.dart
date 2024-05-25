@@ -1,4 +1,5 @@
 import 'package:coffee_card/pages/coffee_prefs.dart';
+import 'package:coffee_card/shared/styled_body_text.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
           Container(
             color: Colors.brown[200],
             padding: const EdgeInsets.all(30),
-            child: const Text("How I like my Coffee..."),
+            child: const StyledBodyText("How I like my Coffee..."),
           ),
           Container(
             color: Colors.brown[100],

@@ -1,3 +1,5 @@
+import 'package:coffee_card/shared/styled_body_text.dart';
+import 'package:coffee_card/shared/styled_button.dart';
 import 'package:flutter/material.dart';
 
 class CoffeePrefs extends StatefulWidget {
@@ -29,8 +31,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
       children: [
         Row(
           children: [
-            const Text("Strength: "),
-            Text("$coffeeStrength"),
+            const StyledBodyText("Strength: "),
             const SizedBox(
               width: 20,
             ),
@@ -42,11 +43,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown[700],
-                foregroundColor: Colors.white,
-              ),
+            StyledButton(
               onPressed: incrementStrength,
               child: const Text("+"),
             ),
@@ -55,11 +52,11 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
         const Padding(padding: EdgeInsets.only(top: 10)),
         Row(
           children: [
-            const Text("Sugars: "),
-            Text("$coffeeSugars"),
+            const StyledBodyText("Sugars: "),
             const SizedBox(
               width: 30,
             ),
+            if (coffeeSugars == 0) const StyledBodyText("None"),
             for (var i = 0; i < coffeeSugars; i++)
               Image.asset(
                 'assets/img/sugar_cube.png',
@@ -68,11 +65,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown[700],
-                foregroundColor: Colors.white,
-              ),
+            StyledButton(
               onPressed: incrementSugars,
               child: const Text("+"),
             ),
